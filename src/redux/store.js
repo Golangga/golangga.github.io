@@ -1,14 +1,10 @@
-import { configureStore, applyMiddleware } from "redux";
-import { thunk } from "redux-thunk";
-import { composeWithDevTools } from "redux-devtools-extention";
-import rootReducer from "./reducers";
+import { configureStore } from "@reduxjs/toolkit";
+import mahasiswaReducer from "./reducers/mahasiswaReducer";
 
-const initialState = {};
+const store = configureStore({
+  reducer: {
+    mahasiswa: mahasiswaReducer,
+  },
+});
 
-const applyMiddleware = [thunk];
-
-const store = configureStore(
-  rootReducer,
-  initialState,
-  composeWithDevTools(applyMiddleware(...applyMiddleware))
-);
+export default store;

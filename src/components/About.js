@@ -1,12 +1,12 @@
 import React from "react";
 
-const About = () => {
-  return (
-    <div className="text-center mt-10">
-      <h1 className="text-4xl font-bold">About Page</h1>
-      <p className="text-2xl mt-4">This is the about page.</p>
-    </div>
-  );
-};
+const About = () => (
+  <div className="container mx-auto mt-8 text-center">
+    <h1 className="text-3xl font-bold mb-4">About</h1>
+    <p className="text-gray-700">
+      This is a simple application using React, Redux, and Tailwind CSS.
+    </p>
+  </div>
+);
 
 export default About;
