@@ -1,18 +1,20 @@
 import React, { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { fetchMahasiswa } from "../redux/actions/mahasiswaActions";
 import Mhs from "./Mhs";
-import { useDispatch, useSelector } from "react-redux";
-import { fetchMahasiswa } from "../redux/actions/MahasiswaActions";
+
 const Home = () => {
   const dispatch = useDispatch();
-  const mahasiswaState = useSelector((state) => state.mahasiswa);
-  const { mahasiswa, loading, error } = mahasiswaState;
+  const { mahasiswa, loading, error } = useSelector((state) => state.mahasiswa);
+
   useEffect(() => {
     dispatch(fetchMahasiswa());
   }, [dispatch]);
+
   return (
     <div className="container mx-auto mt-8 text-center">
       <h1 className="text-3xl font-bold mb-4">Daftar Mahasiswa</h1>
-      {loading && <p>Loading....</p>}
+      {loading && <p>Loading...</p>}
       {error && <p>Error: {error}</p>}
       <div className="grid grid-cols-3 gap-4">
         {mahasiswa.map((mhs) => (
