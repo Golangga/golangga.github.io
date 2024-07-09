@@ -1,3 +1,4 @@
+//src/actions/mahasiswaActions.js
 import axios from "axios";
 
 export const fetchMahasiswa = () => async (dispatch) => {
